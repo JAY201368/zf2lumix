@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eeebe3">
+  <meta name="description" content="Zf2Lumix 将 Nikon Zf 的 14 位 NEF 转为 S5M2 兼容 RW2。浏览真实桌面界面、胶片队列、校准旋钮与纸质检片记录。">
+  <meta property="og:title" content="Zf2Lumix">
+  <meta property="og:description" content="Nikon Zf · 14-bit NEF → S5M2-compatible RW2">
+  <meta property="og:image" content="https://jay201368.github.io/zf2lumix/assets/interface.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Zf2Lumix · 界面与操作</title>
+  <script src="showcase.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#interface">跳到界面展示</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#top" aria-label="Zf2Lumix 首页"><img src="assets/icon.png" width="32" height="32" alt="">Zf2Lumix</a>
+    <nav aria-label="主导航">
+      <a href="#interface">界面</a>
+      <a href="#controls">操作</a>
+      <a href="https://github.com/JAY201368/zf2lumix">GitHub <span aria-hidden="true">↗</span></a>
+      <a class="nav-download" href="#download">下载 <span aria-hidden="true">↓</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro wrap" aria-labelledby="product-title">
+      <div class="intro-title">
+        <p class="eyebrow">NIKON Zf / S5M2 RW2</p>
+        <h1 id="product-title">Zf2Lumix</h1>
+      </div>
+      <div class="intro-notes">
+        <p>14 位 NEF → RW2<br>本机转换，供 LUMIX Lab 导入。</p>
+        <a class="text-link" href="https://github.com/JAY201368/zf2lumix/releases/latest">macOS 下载 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="interface wrap" id="interface" aria-label="实际界面展示">
+      <div class="screen-stage">
+        <a id="screen-link" href="assets/interface.png" target="_blank" rel="noopener" aria-label="打开胶片队列原图">
+          <img id="screen" src="assets/interface.png" width="1960" height="1600" alt="Zf2Lumix 胶片队列，包含照片、输出目录、颜色校准旋钮和转换键" fetchpriority="high">
+        </a>
+      </div>
+      <div class="screen-controls">
+        <div class="view-selector" role="group" aria-label="切换界面截图">
+          <button type="button" data-view="interface" aria-pressed="true">胶片队列</button>
+          <button type="button" data-view="converting" aria-pressed="false">转换进度</button>
+          <button type="button" data-view="records" aria-pressed="false">冲印记录</button>
+          <button type="button" data-view="detail" aria-pressed="false">检片详情</button>
+        </div>
+        <p class="capture-note">macOS 实际截图 <span aria-hidden="true">·</span> 点击画面放大</p>
+      </div>
+      <p id="view-caption" class="view-caption" aria-live="polite">导入、拖放、多选。照片与边字一起滚动。</p>
+      <noscript><p class="view-caption"><a href="assets/converting.png">转换进度</a> · <a href="assets/records.png">冲印记录</a> · <a href="assets/detail.png">检片详情</a></p></noscript>
+    </section>
+
+    <section class="controls-section" id="controls" aria-labelledby="controls-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <h2 id="controls-title">旋钮与按键</h2>
+          <p>自动 / 日光 / 暖光</p>
+        </div>
+        <div class="control-pair">
+          <figure>
+            <div class="control-image dial" role="img" aria-label="实际界面中的三挡颜色校准旋钮与点阵显示"></div>
+            <figcaption><h3>颜色校准</h3><p>拖动、滚轮或方向键。释放后吸附到挡位。</p></figcaption>
+          </figure>
+          <figure>
+            <div class="control-image timer" role="img" aria-label="实际转换中的机械指针、下沉按键与进度显示"></div>
+            <figcaption><h3>转换</h3><p>按键下沉，指针与 LCD 随真实进度更新。</p></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="records-section wrap" aria-labelledby="records-title">
+      <div class="records-copy">
+        <h2 id="records-title">冲印记录</h2>
+        <p>纸签展开批次。<br>从缩略图到详情，再定位回胶片。</p>
+        <dl class="shortcut-list">
+          <div><dt>导入</dt><dd>⌘ / Ctrl + O</dd></div>
+          <div><dt>移除 / 撤销</dt><dd>Delete / ⌘ 或 Ctrl + Z</dd></div>
+          <div><dt>冲印记录</dt><dd>⌘ / Ctrl + I</dd></div>
+          <div><dt>收起</dt><dd>Esc</dd></div>
+        </dl>
+      </div>
+      <a class="paper-screen" href="assets/records.png" target="_blank" rel="noopener" aria-label="放大冲印记录截图">
+        <img src="assets/records.png" width="1960" height="1600" alt="全窗纸质登记页与三列照片清单" loading="lazy">
+      </a>
+    </section>
+
+    <section class="files-section wrap" aria-labelledby="files-title">
+      <div class="section-heading"><h2 id="files-title">文件与画面</h2><p>原片保留 · 逐张校验</p></div>
+      <div class="file-flow" aria-label="NEF 输入经校准、编码和回读生成 RW2 与 JSON">
+        <div class="file-label"><span class="file-extension">.NEF</span><span>Nikon Zf / 14 bit</span></div>
+        <div class="flow-middle"><span>校准 · 编码 · 回读</span><span class="flow-line" aria-hidden="true">→</span></div>
+        <div class="file-label"><span class="file-extension">.RW2</span><span>S5M2 兼容 RAW</span></div>
+        <div class="file-label audit-file"><span class="file-extension">.json</span><span>参数、裁切与校验记录</span></div>
+      </div>
+      <div class="format-row">
+        <div><span class="frame-ratio landscape" aria-hidden="true"></span><span><strong>6000 × 4000</strong><small>全幅有效画面</small></span></div>
+        <div><span class="frame-ratio square" aria-hidden="true"></span><span><strong>4000 × 4000</strong><small>1∶1 机内裁切</small></span></div>
+        <p>按源裁切保留构图。<br>输出重名时另存。</p>
+      </div>
+    </section>
+
+    <section class="download-section" id="download" aria-labelledby="download-title">
+      <div class="wrap download-inner">
+        <div class="download-title"><img src="assets/icon.png" width="64" height="64" alt=""><div><h2 id="download-title">Zf2Lumix</h2><p>1.0.1 · macOS Apple Silicon</p></div></div>
+        <div class="download-actions"><a class="download-button" href="https://github.com/JAY201368/zf2lumix/releases/latest">下载 macOS 版 <span aria-hidden="true">↓</span></a><a href="https://github.com/JAY201368/zf2lumix/blob/main/docs/guide.md">使用与构建 <span aria-hidden="true">↗</span></a></div>
+        <p class="release-note">本地签名，Apple 公证待完成。Windows x64 提供构建源码，实机验证待完成。</p>
+        <details>
+          <summary>兼容性与验证范围</summary>
+          <p>支持 Nikon Zf 的 14 位 RGGB NEF。输出磁盘需支持硬链接，macOS 建议本地 APFS。既有 LUMIX Lab 对照覆盖 ISO800 标准格调样本，当前裁切、白平衡推断与自动插值路径的 Lab 显影验收仍待完成。内嵌预览由 LibRaw 生成。</p>
+          <a href="https://github.com/JAY201368/zf2lumix/blob/main/docs/guide.md#兼容性与验证范围">查看完整说明 ↗</a>
+        </details>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap site-footer"><span>Zf2Lumix</span><div><a href="https://github.com/JAY201368/zf2lumix">源码</a><a href="https://github.com/JAY201368/zf2lumix/blob/main/LICENSE">MIT</a><a href="https://github.com/JAY201368/zf2lumix/blob/main/converter/THIRD_PARTY_NOTICES.md">第三方声明</a></div></footer>
+</body>
+</html>
