@@ -6,8 +6,7 @@
 <p align="center">
   <a href="https://jay201368.github.io/zf2lumix/">界面与操作</a> ·
   <a href="https://github.com/JAY201368/zf2lumix/releases/latest">下载 macOS 版</a> ·
-  <a href="docs/guide.md">使用与构建</a> ·
-  <a href="converter/WINDOWS.md">Windows 源码</a>
+  <a href="docs/guide.md">使用与构建</a>
 </p>
 
 ![Zf2Lumix 实际桌面界面，展示胶片队列、颜色校准旋钮与转换控制](docs/assets/interface.png)
@@ -35,7 +34,7 @@
 
 ## 开始使用
 
-从 [Releases](https://github.com/JAY201368/zf2lumix/releases/latest) 下载 `Zf2Lumix-1.0.1-macOS-arm64.zip`，解压后打开 `Zf2Lumix.app`。Apple Silicon 版本已随附 Python 与转换依赖。首次打开遇到系统拦截时，可在系统设置的「隐私与安全性」中允许打开该应用。应用采用本地签名，Apple Developer ID 公证待完成。
+从 [Releases](https://github.com/JAY201368/zf2lumix/releases/latest) 下载 `Zf2Lumix-1.0.1-macOS-arm64.zip`，解压后打开 `Zf2Lumix.app`。Apple Silicon 版本已随附 Python 与转换依赖。首次打开遇到系统拦截时，可在系统设置的「隐私与安全性」中允许打开该应用。应用采用本地签名。
 
 1. 点击「导入」或拖入 NEF 文件、文件夹。
 2. 选择输出文件夹，通常使用「自动」校准。
@@ -48,10 +47,10 @@
 | 全幅 / 1∶1 | 有效画面 6000 × 4000 / 4000 × 4000，按源裁切保持构图 |
 | 校准 | ISO 100–12800 校准点，中间档对数插值，超出范围使用边界参数并提示 |
 | 文件保存 | 原片哈希核对、输出重名另存、逐张 JSON 记录 |
-| 输出磁盘 | 需要支持硬链接，macOS 建议本地 APFS，Windows 建议 NTFS |
-| 平台 | macOS Apple Silicon 成品，Windows x64 构建源码 |
+| 输出磁盘 | 需要支持硬链接，建议本地 APFS |
+| 平台 | macOS Apple Silicon |
 
-Windows 成品的实机验证待完成。LUMIX Lab 既有对照覆盖 ISO800 标准格调样本，当前裁切、白平衡推断与自动光源插值的完整 Lab 显影验收仍待完成。内嵌预览由 LibRaw 生成。详细兼容性与验证范围见 [使用与构建](docs/guide.md)。
+LUMIX Lab 既有对照覆盖 ISO800 标准格调样本。内嵌预览由 LibRaw 生成。详细兼容性与验证范围见 [使用与构建](docs/guide.md)。
 
 ## 从源码运行
 
@@ -71,7 +70,7 @@ clang++ -std=c++17 -O3 encode_pana8.cpp -o encode_pana8
 .venv/bin/python converter.py /path/to/photos -o /path/to/output
 ```
 
-[构建与模块说明](docs/guide.md#开发与构建) · [Windows 构建](converter/WINDOWS.md) · [RAW 显影后端](docs/raw-development.md)
+[构建与模块说明](docs/guide.md#开发与构建) · [RAW 显影后端](docs/raw-development.md)
 
 ## 许可
 

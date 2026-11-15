@@ -6,13 +6,13 @@ Zf2Lumix 1.0.1 将 Nikon Zf 的 14 位 NEF 转为 S5M2 兼容 RW2。桌面版采
 
 | 操作 | 入口 |
 | --- | --- |
-| 导入 NEF / 文件夹 | 「导入」、拖放，或 ⌘/Ctrl + O |
-| 选择照片 | 单击，多选用 ⌘/Ctrl，连续选择用 Shift |
+| 导入 NEF / 文件夹 | 「导入」、拖放，或 ⌘ + O |
+| 选择照片 | 单击，多选用 ⌘，连续选择用 Shift |
 | 移出队列 | 右键菜单或 Backspace / Delete |
-| 撤销最近一次移除 | 「撤销移除」或 ⌘/Ctrl + Z |
+| 撤销最近一次移除 | 「撤销移除」或 ⌘ + Z |
 | 查看照片详情 | 双击照片或右键菜单 |
-| 查看冲印记录 | 胶片上方纸签或 ⌘/Ctrl + I |
-| 开始转换 | 「转换」或 ⌘/Ctrl + Enter |
+| 查看冲印记录 | 胶片上方纸签或 ⌘ + I |
+| 开始转换 | 「转换」或 ⌘ + Enter |
 | 收起记录或详情 | 「收起」或 Escape |
 
 「清空」清除当前导入队列。转换结束后的首次有效导入开始新批次。取消导入保留上一批记录。关闭正在转换的窗口时，程序先完成当前照片，再停止后续队列。
@@ -30,9 +30,9 @@ Zf2Lumix 1.0.1 将 Nikon Zf 的 14 位 NEF 转为 S5M2 兼容 RW2。桌面版采
 
 ## 兼容性与验证范围
 
-macOS 下载包针对 Apple Silicon，采用本地签名。Apple Developer ID 公证待完成。Windows x64 提供构建脚本及源码，EXE 实机验证待完成。
+macOS 下载包针对 Apple Silicon，采用本地签名。
 
-既有 LUMIX Lab 对照覆盖四张 ISO800 样本的标准格调及相同显影设置。当前实现的裁切、白平衡推断、自动光源插值及元数据路径已做本地检查，对应 Lab 实际显影验收仍待完成。项目沿用颜色映射可推广的工作假设。
+既有 LUMIX Lab 对照覆盖四张 ISO800 样本的标准格调及相同显影设置。当前实现的裁切、白平衡推断、自动光源插值及元数据路径已完成本地文件结构与解码检查。
 
 内嵌 JPEG 预览使用 LibRaw 生成，最终颜色以目标软件实际显影为准。默认 neutral 策略关闭模板畸变和暗角参数，Nikon 镜头校正需由后续处理软件承担。
 
@@ -63,7 +63,7 @@ clang++ -std=c++17 -O3 encode_pana8.cpp -o encode_pana8
 .venv/bin/pyinstaller --noconfirm Zf2Lumix-desktop.spec
 ```
 
-生成 `dist/Zf2Lumix.app`。Windows 的工具链与打包步骤见 [WINDOWS.md](../converter/WINDOWS.md)。
+生成 `dist/Zf2Lumix.app`。
 
 | 模块 | 职责 |
 | --- | --- |
@@ -77,7 +77,7 @@ clang++ -std=c++17 -O3 encode_pana8.cpp -o encode_pana8
 
 ### RAW 显影后端
 
-`converter/raw_developer/` 保留独立的 Swift / Metal / Python 显影实现，包含照片格调、两层 LUT 与 JPEG 导出接口。运行需要另行具备原厂格调资源和未随仓库分发的 NR 校准数据。公开桌面下载包提供 NEF → RW2 功能，显影控件仍待接入。接口及环境说明见 [后端说明](raw-development.md)。
+`converter/raw_developer/` 保留独立的 Swift / Metal / Python 显影实现，包含照片格调、两层 LUT 与 JPEG 导出接口。运行需要另行具备原厂格调资源和未随仓库分发的 NR 校准数据。公开桌面下载包提供 NEF → RW2 功能。接口及环境说明见 [后端说明](raw-development.md)。
 
 `Zf2Lumix.spec` 保留包含显影后端的本地整包配置，公开桌面构建使用 `Zf2Lumix-desktop.spec`。
 
